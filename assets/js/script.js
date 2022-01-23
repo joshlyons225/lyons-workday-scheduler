@@ -1,3 +1,6 @@
+//tasks global var
+var tasks = {};
+
 // today's date global var 
 var currentDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(currentDate);
@@ -14,11 +17,9 @@ $(document).ready(function() {
         var task = $(this).siblings(".description").val();
 
         // add to localStorage
-        localStorage.setItem(JSON.stringify(time, task));
-    })
+        localStorage.setItem("tasks", JSON.stringify(time, task));
 
-    // create loadTasks function to check from localStorage
-    var loadTasks = function() {
+        // pull previously saved data from localStorage
         tasks = JSON.parse(localStorage.getItem(time, task));
 
         // retrieve saved data for all hours from localStorage
@@ -32,7 +33,8 @@ $(document).ready(function() {
         $("#hour-15 .description").val(localStorage.getItem("hour-15"));
         $("#hour-16 .description").val(localStorage.getItem("hour-16"));
         $("#hour-17 .description").val(localStorage.getItem("hour-17"));
-    }
+    
+    })
 
     // function to set appropriate time naming conventions
     var timeClassUpdate = function() {
@@ -62,6 +64,5 @@ $(document).ready(function() {
     }
 
     // callbacks
-    loadTasks();
     timeClassUpdate();
 })
