@@ -17,10 +17,10 @@ $(document).ready(function() {
         var task = $(this).siblings(".description").val();
 
         // add to localStorage
-        localStorage.setItem("tasks", JSON.stringify(time, task));
+        localStorage.setItem(time, task);
 
         // pull previously saved data from localStorage
-        tasks = JSON.parse(localStorage.getItem(time, task));
+        tasks = localStorage.getItem(time, task);
 
         // retrieve saved data for all hours from localStorage
         $("#hour-8 .description").val(localStorage.getItem("hour-8"));
