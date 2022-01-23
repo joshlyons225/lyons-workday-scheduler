@@ -77,6 +77,6 @@ textarea {
 }
 
 /* Media Query for smaller screens */
-.row {
+footer, .row {
   height: auto;
 }
